@@ -77,7 +77,7 @@ class FredLink(object):
         data : Series
             a Series where each index is the observation date and the value is the data for the Fred series
         """
-        url = "http://api.stlouisfed.org/fred/series/observations?series_id=%s&api_key=%s" % (series_id, self.api_key)
+        url = "https://api.stlouisfed.org/fred/series/observations?series_id=%s&api_key=%s" % (series_id, self.api_key)
         from pandas import to_datetime, Series
 
         if observation_start is not None:

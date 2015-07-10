@@ -4,7 +4,7 @@ Created on Jul 6, 2015
 @author: shaunz
 '''
 
-ticker_list = [
+Fred_ticker_list = [
                #CPI US
                ['cpi_us',                   'CPIAUCSL'      ],
                ['cpi_us_food_at_home',      'CUUR0000SAF11' ],
@@ -22,5 +22,10 @@ ticker_list = [
                ['cpi_us_communication',     'CUUR0000SAE2'  ],
                
                #Wages US
-               
+               ['wage_us_employee',                 'PAYEMS'        ],    
+               ['wage_us_hours',                    'AWHAETP'       ],    
+               ['wage_us_earnings',                 'CES0500000003' ],
+               ['wage_us_employee_nonsupervisory',  'CES0500000006' ],    
+               ['wage_us_hours_nonsupervisory',     'AWHNONAG'      ],    
+               ['wage_us_earnings_nonsupervisory',  'AHETPI'        ],
                ]
