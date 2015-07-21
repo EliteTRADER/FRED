@@ -2,11 +2,13 @@
 Created on Jul 6, 2015
 
 @author: shaunz
+
+Data can be queried from Quandl
 '''
 
 Fred_ticker_list = [
                #CPI US
-               ['cpi_us',                   'CPIAUCSL'      ],
+               ['cpi_us',                   'CPIAUCNS'      ],
                ['cpi_us_food_at_home',      'CUUR0000SAF11' ],
                ['cpi_us_food_away_home',    'CUUR0000SEFV'  ],
                ['cpi_us_rent',              'CUUR0000SEHA'  ],
@@ -28,4 +30,6 @@ Fred_ticker_list = [
                ['wage_us_employee_nonsupervisory',  'CES0500000006' ],    
                ['wage_us_hours_nonsupervisory',     'AWHNONAG'      ],    
                ['wage_us_earnings_nonsupervisory',  'AHETPI'        ],
+               ['wage_us_weekly',                   'CES0500000011' ],
+               ['wage_us_weekly_nonsupervisory',    'CES0500000030' ],
                ]
