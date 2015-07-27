@@ -32,4 +32,17 @@ Fred_ticker_list = [
                ['wage_us_earnings_nonsupervisory',  'AHETPI'        ],
                ['wage_us_weekly',                   'CES0500000011' ],
                ['wage_us_weekly_nonsupervisory',    'CES0500000030' ],
+
+               #GDP
+               [ 'gdp_us', 'GDP'],
+               
+               #Energy price
+               ['wti_spot',         'DCOILWTICO'    ],
+               ['brent_spot',       'DCOILBRENTEU'  ],
+               ['ng_hh_spot',       'MHHNGSP'       ],
+               
+               #House price
+               ['house_price_fnm',          'USSTHPI'       ],
+               ['house_price_monthly_fnm',  'HPIPONM226N'   ],
+               ['city_20_index',            'SPCS20RNSA'    ],
                ]

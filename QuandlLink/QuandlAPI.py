@@ -46,5 +46,4 @@ class QuandlAPI(object):
                     raise ValueError("For %s, %s" % (data, message['error']))
             
         points = concat(all_data, axis=1, join='outer')
-        
         return points

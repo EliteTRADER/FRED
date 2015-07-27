@@ -3,9 +3,14 @@ Created on Jul 2, 2015
 
 @author: shaunz
 '''
-from urllib2 import urlopen, HTTPError
+
 import xml.etree.ElementTree as ET
+import json
+import requests
 from urllib import urlencode
+from urllib2 import urlopen, HTTPError
+
+session = requests.session()
 
 class FredLink(object):
     
@@ -16,6 +21,8 @@ class FredLink(object):
     
     def __init__(self, registered_key='d301ce2c048a0a18e4d57587918c6a56'):
         self.api_key = registered_key
+        self.user_name = 'root'
+        self.password = 'root'
     
     def __fetch_data(self, url):
         """
@@ -102,3 +109,41 @@ class FredLink(object):
                 val = float(val)
             data[self._parse(child.get('date'))] = val
         return Series(data)
+
+    def request(self, url, method='GET', params=None, data=None, expected_response_code=200):
+        '''
+        Make a http request to API
+        '''
+        url = 'https://localhost:8086/%s' % url
+
+        if params is None:
+            params = {}
+            
+        auth = { 'u': self._username, 'p': self._password }
+        params.update(auth)
+
+        if data is not None and not isinstance(data, str):
+            data = json.dumps(data)
+
+        for i in range(0, 3):
+            try:
+                response = session.request(
+                    method=method,
+                    url=url,
+                    params=params,
+                    data=data,
+                    headers=self._headers,
+                    verify=self._verify_ssl,
+                    timeout=self._timeout
+                )
+                break
+            except requests.exceptions.ConnectionError as e:
+                if i < 2:
+                    continue
+                else:
+                    raise e
+
+        if response.status_code == expected_response_code:
+            return response
+        else:
+            raise ValueError(response)
